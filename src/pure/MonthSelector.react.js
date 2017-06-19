@@ -30,6 +30,7 @@ type Props = {
   monthText?: Text.propTypes.style,
   monthDisabledText?: Text.propTypes.style,
   selectedText?: Text.propTypes.style,
+  monthNameUpperCase?: boolean
 };
 type State = {
   months: Array<Array<Object>>,
@@ -102,7 +103,7 @@ export default class MonthSelector extends Component {
                   month.valid ? null : this.props.monthDisabledText,
                   month.index === this.state.selectedMonth ? this.props.selectedText : null,
                 ]}>
-                  {month.name}
+                  {this.props.monthNameUpperCase ? month.name.toUpperCase() : month.name}
                 </Text>
               </TouchableHighlight>
             )}

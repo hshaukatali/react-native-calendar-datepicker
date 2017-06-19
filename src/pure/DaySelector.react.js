@@ -39,6 +39,7 @@ type Props = {
   dayTodayText?: Text.propTypes.style,
   daySelectedText?: Text.propTypes.style,
   dayDisabledText?: Text.propTypes.style,
+  dayNameUpperCase?: boolean,
 };
 type State = {
   days: Array<Array<Object>>,
@@ -185,7 +186,7 @@ export default class DaySelector extends Component {
         <View style={[styles.headerView, this.props.dayHeaderView]}>
           {_.map(Moment.weekdaysShort(true), (day) =>
             <Text key={day} style={[styles.headerText, this.props.dayHeaderText]}>
-              {day}
+              {this.props.dayNameUpperCase ? day.toUpperCase() : day}
             </Text>
           )}
         </View>
