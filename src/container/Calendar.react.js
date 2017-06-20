@@ -74,6 +74,8 @@ type Props = {
   barTitleUpperCase?: boolean,
   barTitleText?: Text.propTypes.style,
   barCaret?: Text.propTypes.style,
+  dayNameUpperCase?: boolean,
+  monthNameUpperCase?: boolean
 };
 type State = {
   stage: Stage,
@@ -217,6 +219,7 @@ export default class Calendar extends Component {
               dayTodayText={this.props.dayTodayText}
               daySelectedText={this.props.daySelectedText}
               dayDisabledText={this.props.dayDisabledText}
+              dayNameUpperCase={this.props.dayNameUpperCase}
               /> :
             this.state.stage === MONTH_SELECTOR ?
             <MonthSelector
@@ -229,6 +232,7 @@ export default class Calendar extends Component {
               monthText={this.props.monthText}
               monthDisabledText={this.props.monthDisabledText}
               selectedText={this.props.monthSelectedText}
+              monthNameUpperCase={this.props.monthNameUpperCase}
               /> :
             this.state.stage === YEAR_SELECTOR ?
             <YearSelector
